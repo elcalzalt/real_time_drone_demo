@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led-heartbeat",
+      "top": 0,
+      "left": 250,
+      "attrs": { "color": "green", "label": "Heartbeat (OK)" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led-hard-deadline",
+      "top": 80,
+      "left": 250,
+      "attrs": { "color": "red", "label": "Hard Deadline Miss" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led-soft-deadline",
+      "top": 150,
+      "left": 250,
+      "attrs": { "color": "yellow", "label": "Soft Deadline Miss" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn-emergency",
+      "top": -80,
+      "left": 20,
+      "attrs": { "label": "Emergency Stop" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot-dust",
+      "top": 250,
+      "left": 15,
+      "attrs": { "label": "Dust Sensor (ADC)" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot-lidar",
+      "top": 250,
+      "left": -65,
+      "attrs": { "label": "LiDAR Distance" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot-battery",
+      "top": 250,
+      "left": 95,
+      "attrs": { "label": "Battery Voltage" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer-motor",
+      "top": -50,
+      "left": -150,
+      "attrs": { "label": "Brush Motor (PWM)" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer-pump",
+      "top": 0,
+      "left": -200,
+      "attrs": { "label": "Pump Valve (PWM)" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer-prop-l",
+      "top": 50,
+      "left": -150,
+      "attrs": { "label": "Propeller L (PWM)" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer-prop-r",
+      "top": 100,
+      "left": -200,
+      "attrs": { "label": "Propeller R (PWM)" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "led-heartbeat:C", "black", [] ],
+    [ "esp:13", "led-heartbeat:A", "green", [] ],
+    [ "esp:GND.2", "led-hard-deadline:C", "black", [] ],
+    [ "esp:12", "led-hard-deadline:A", "red", [] ],
+    [ "esp:GND.2", "led-soft-deadline:C", "black", [] ],
+    [ "esp:14", "led-soft-deadline:A", "yellow", [] ],
+    [ "esp:GND.2", "btn-emergency:2.r", "black", [] ],
+    [ "esp:25", "btn-emergency:1.l", "red", [] ],
+    [ "esp:GND.1", "pot-dust:GND", "black", [] ],
+    [ "esp:3V3", "pot-dust:VCC", "orange", [] ],
+    [ "esp:34", "pot-dust:SIG", "blue", [] ],
+    [ "esp:GND.1", "pot-lidar:GND", "black", [] ],
+    [ "esp:3V3", "pot-lidar:VCC", "orange", [] ],
+    [ "esp:35", "pot-lidar:SIG", "blue", [] ],
+    [ "esp:GND.1", "pot-battery:GND", "black", [] ],
+    [ "esp:3V3", "pot-battery:VCC", "orange", [] ],
+    [ "esp:VP", "pot-battery:SIG", "blue", [] ],
+    [ "esp:32", "buzzer-motor:2", "red", [] ],
+    [ "esp:33", "buzzer-pump:2", "red", [] ],
+    [ "esp:26", "buzzer-prop-l:2", "red", [] ],
+    [ "esp:27", "buzzer-prop-r:2", "red", [] ],
+    [ "esp:GND.1", "buzzer-motor:1", "black", [] ],
+    [ "esp:GND.1", "buzzer-pump:1", "black", [] ],
+    [ "esp:GND.1", "buzzer-prop-l:1", "black", [] ],
+    [ "esp:GND.1", "buzzer-prop-r:1", "black", [] ]
+  ],
+  "dependencies": {}
+}
