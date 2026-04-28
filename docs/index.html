@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Autonomous Solar‑Panel Cleaning Drone — Demo</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Roboto, "Segoe UI", Arial; line-height:1.5; margin:0; padding:0; color:#222; }
+    header { background:#0b6; color:#003; padding:24px; }
+    main { padding:24px; max-width:900px; margin:0 auto; }
+    .video { margin:18px 0; }
+    iframe { width:100%; height:480px; max-height:70vh; border:0; }
+    .meta { color:#444; font-size:0.95rem; margin-top:8px; }
+    footer { padding:24px; border-top:1px solid #eee; color:#666; text-align:center; }
+    pre { background:#f6f8fa; padding:12px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Autonomous Solar‑Panel Cleaning Drone (PoC)</h1>
+    <p style="margin:6px 0 0;">A FreeRTOS real‑time prototype running on ESP32 (Wokwi simulation). Demonstrates hard deadlines, ISR safety, mutex/queue sync, and deterministic motor control.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Project Summary</h2>
+      <p>
+        This prototype simulates an autonomous drone that cleans solar panels with a rotating brush and water spray.
+        It demonstrates real‑time scheduling on an ESP32 using FreeRTOS: Motor Control (20ms), Sensor Fusion (50ms),
+        and Obstacle Avoidance (30ms) are treated as hard real‑time tasks. Telemetry and a heartbeat LED run as soft real‑time tasks.
+      </p>
+    </section>
+
+    <section aria-labelledby="demo">
+      <h2 id="demo">Demo Video</h2>
+      <p class="meta">Video uploaded to YouTube — the video below is embedded for quick viewing.</p>
+
+      <div class="video" role="region" aria-label="Demo video">
+        <iframe
+          src="https://www.youtube.com/embed/OW3y08i7cCA"
+          title="Autonomous Solar-Panel Cleaning Drone Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <p class="meta">If you change the video, update the iframe src to: <code>https://www.youtube.com/embed/VIDEO_ID</code></p>
+    </section>
+
+    <section aria-labelledby="how-to-run">
+      <h2 id="how-to-run">How to Run the Wokwi Demo</h2>
+      <ol>
+        <li>Open the repository and click the Wokwi files (diagram.json and main.cpp) or import them into <a href="https://wokwi.com" target="_blank">Wokwi</a>.</li>
+        <li>Start the simulator, open the Serial Monitor, and adjust the potentiometers to simulate dust, LiDAR distance, and battery.</li>
+        <li>Press the Emergency Stop button to exercise the ISR and observe safe motor shutdown.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="files">
+      <h2 id="files">Included Files</h2>
+      <ul>
+        <li><strong>main.cpp</strong> — FreeRTOS + ESP32 firmware used in Wokwi (motor control, sensors, telemetry)</li>
+        <li><strong>diagram.json</strong> — Wokwi hardware diagram, wiring for potentiometers, LED, and buzzers</li>
+        <li><strong>README.md</strong> — Project documentation and engineering analysis</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Repo: <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">github.com/YOUR_USERNAME/YOUR_REPO</a> — Built as a PoC for autonomous solar‑panel maintenance</p>
+  </footer>
+</body>
+</html>
